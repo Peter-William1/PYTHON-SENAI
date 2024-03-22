@@ -1,0 +1,36 @@
+{
+    "dados": [
+        {
+            "username": "admin",
+            "pass": "admin"
+        },
+        {
+            "username": "gabriel",
+            "pass": "123123"
+        },
+        {
+            "username": "gab",
+            "pass": "gab"
+        },
+        {
+            "username": "gabbbbbb",
+            "pass": "123123"
+        },
+        {
+            "username": "yan123",
+            "pass": "123123"
+        },
+        {
+            "username": "aaa",
+            "pass": "1234"
+        },
+        {
+            "username": "1234",
+            "pass": "12345"
+        },
+        {
+            "username": "User: ",
+            "pass": "1234"
+        }
+    ]
+}

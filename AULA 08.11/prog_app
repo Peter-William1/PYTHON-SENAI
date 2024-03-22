@@ -1,0 +1,48 @@
+
+import os
+import sqlite3
+
+# Conectar (ou criar) um banco de dados SQLite chamado "meudatabase.db"
+conn = sqlite3.connect('clientes.db')
+cursor = conn.cursor()
+
+# Criar uma nova tabela chamada "usuarios" caso não existe. Se já existir nada será feito
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INTEGER PRIMARY KEY,
+    nome TEXT NOT NULL,
+    idade INTEGER NOT NULL
+)'
+''')
+
+# Inserir um novo registro na tabela "usuarios"
+
+def Inserir(nome,idade):
+    cursor.execute("INSERT INTO usuarios (nome, idade) VALUES (?, ?)", (nome, idade))
+
+def remover(id):
+    cursor.execute(f"DELETE FROM usuarios WHERE id='{id}'")
+def atualizar(novonome,novaidade,id):
+    cursor.execute(f"UPDATE usuarios SET nome='{novonome}', idade='{novaidade}' WHERE id='{id}'")
+
+
+Inserir('joão', 16)
+
+
+
+# Recuperando a lista de usuários
+cursor.execute("SELECT * FROM usuarios")
+registros = cursor.fetchall()
+
+def listar():
+    for item in registros:
+        print(f"ID: {item[0]}, Nome: {item[1]}, Idade: {item[2]}")
+
+# Commitar as alterações e fechar a conexão
+# Em caso de falha na execução nenhuma alteração é realizada
+
+listar()
+
+conn.commit() 
+
+conn.close()
